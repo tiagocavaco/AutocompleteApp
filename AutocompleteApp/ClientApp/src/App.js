@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Autocomplete from './components/Autocomplete';
 
 import './custom.css'
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render () {
-    return (
-      <h1>Autocomplete</h1>
-    );
-  }
+const App = () => {
+  return (
+    <Autocomplete />
+  );
 }
+
+export default App;
