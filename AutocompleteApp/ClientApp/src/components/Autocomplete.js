@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useDebounce } from '../hooks/useDebounce';
 
 const Autocomplete = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [emptyResult, setEmptyResult] = useState(false);
   const [items, setItems] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const debouncedSearchTerm = useDebounce(searchTerm);
 
   useEffect(() => {
     if (!searchTerm.length) {
@@ -27,7 +29,7 @@ const Autocomplete = () => {
           }
         );
     }
-  }, [searchTerm]);
+  }, [debouncedSearchTerm]);
 
   return (
     <div className="d-flex flex-column align-items-center" style={{ marginTop: '20vh' }}>

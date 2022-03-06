@@ -82,16 +82,18 @@ test('when user clicks the input and types, the autocomplete list should be fill
   // Emulates an user typing in the input field
   userEvent.type(inputElement, typedValue[0]);
   userEvent.type(inputElement, typedValue[1]);
-  userEvent.type(inputElement, typedValue[2]);
-  
+  setTimeout(() => userEvent.type(inputElement, typedValue[2]), 150); // setTimeout to 150ms to make sure debounce is working
+
   // Input value should be the typed value by user
   await waitFor(() => expect(inputElement.value).toBe(typedValue));
-  
-  // Waits to make sure fetch has been called 3 times
-  await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(3));
 
-  // Fetch should be called with url and query string equal to the typed value
-  expect(window.fetch).toHaveBeenCalledWith('WorldCities?searchTerm=' + typedValue);
+  // Waits to make sure fetch has been called 2 times
+  await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(2));
+
+  // First fetch should be called with url and query string equal to the first 2 chars
+  expect(window.fetch).toHaveBeenNthCalledWith(1, 'WorldCities?searchTerm=' + typedValue[0] + typedValue[1]);
+  // Second fetch should be called with url and query string equal to the typed value
+  expect(window.fetch).toHaveBeenNthCalledWith(2, 'WorldCities?searchTerm=' + typedValue);
 
   const listElement = screen.getByRole('list');
   expect(listElement).toBeInTheDocument();
@@ -112,8 +114,8 @@ test('when user clicks the input and types, the autocomplete list should be fill
   // Input value should be the selected value name
   expect(inputElement.value).toBe(fetchResponseData[0].name);
 
-  // Waits to make sure fetch has been called for the 4th time
-  await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(4));
+  // Waits to make sure fetch has been called for the 3rd time
+  await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(3));
 
   // Fetch should be called with url and query string equal to the selected value name
   expect(window.fetch).toHaveBeenCalledWith('WorldCities?searchTerm=' + fetchResponseData[0].name);
@@ -149,8 +151,8 @@ test('when user clicks the input and types a not found value, the autocomplete l
   // Input value should be the typed value by user
   expect(inputElement.value).toBe(typedValue);
 
-  // Waits to make sure fetch has been called 3 times
-  await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(3));
+  // Waits to make sure fetch has been called for the 1st time
+  await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(1));
 
   // Fetch should be called with url and query string equal to the typed value
   expect(window.fetch).toHaveBeenCalledWith('WorldCities?searchTerm=' + typedValue);
@@ -206,8 +208,8 @@ test('when user clicks the input and types, and error occurs in the api, error s
   // Input value should be the typed value by user
   expect(inputElement.value).toBe(typedValue);
 
-  // Waits to make sure fetch has been called 3 times
-  await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(3));
+  // Waits to make sure fetch has been called for the 1st time
+  await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(1));
 
   // Fetch should be called with url and query string equal to the typed value
   expect(window.fetch).toHaveBeenCalledWith('WorldCities?searchTerm=' + typedValue);
