@@ -17,6 +17,7 @@ namespace AutocompleteApp.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 3600)]
         
         public IEnumerable<City> Get(string searchTerm)
         {
