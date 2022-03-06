@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutocompleteApp.Data", "Aut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutocompleteApp.Test", "AutocompleteApp.Test\AutocompleteApp.Test.csproj", "{2881B5D6-8C44-48D3-B0C6-E2ABB2F9FA0B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutocompleteApp.Business", "AutocompleteApp.Business\AutocompleteApp.Business.csproj", "{D1F24ACE-96E7-4C4A-80FD-52AF7F618717}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2881B5D6-8C44-48D3-B0C6-E2ABB2F9FA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2881B5D6-8C44-48D3-B0C6-E2ABB2F9FA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2881B5D6-8C44-48D3-B0C6-E2ABB2F9FA0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1F24ACE-96E7-4C4A-80FD-52AF7F618717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F24ACE-96E7-4C4A-80FD-52AF7F618717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F24ACE-96E7-4C4A-80FD-52AF7F618717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F24ACE-96E7-4C4A-80FD-52AF7F618717}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
