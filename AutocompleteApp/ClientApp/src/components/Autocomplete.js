@@ -9,16 +9,16 @@ const Autocomplete = () => {
   const debouncedSearchTerm = useDebounce(searchTerm);
 
   useEffect(() => {
-    if (!searchTerm.length) {
+    if (!debouncedSearchTerm.length) {
       setEmptyResult(false);
       setItems([]);
     }
     else {
-      fetch("WorldCities?searchTerm=" + searchTerm)
+      fetch("WorldCities?searchTerm=" + debouncedSearchTerm)
         .then(res => res.json())
         .then(
           (result) => {
-            setEmptyResult(searchTerm.length > 0 && result.length == 0);
+            setEmptyResult(debouncedSearchTerm.length > 0 && result.length === 0);
             setItems(result);
           },
           (error) => {
