@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AutocompleteApp.Business\AutocompleteApp.Business.csproj" />
     <ProjectReference Include="..\AutocompleteApp.Data\AutocompleteApp.Data.csproj" />
+    <ProjectReference Include="..\AutocompleteApp\AutocompleteApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>
