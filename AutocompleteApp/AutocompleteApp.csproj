@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -27,6 +27,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AutocompleteApp.Business\AutocompleteApp.Business.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Files\world-cities_csv.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
