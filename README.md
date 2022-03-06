@@ -1,4 +1,4 @@
-# .Net Core React App - World Cities Autocomplete Example
+# .Net Core React App - Autocomplete Example
 
 ## Dev environment
 
