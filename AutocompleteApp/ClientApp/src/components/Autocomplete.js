@@ -43,8 +43,8 @@ const Autocomplete = () => {
         onBlur={_ => setIsOpen(false)}
       />
       {isOpen &&
-        <div>
-          <ul>
+        <div className="autocomplete-container">
+          <ul className="autocomplete-list">
             {items.length > 0 ?
               items.map((item, index) => (
                 <li key={index} onMouseDown={_ => setSearchTerm(item.name)}>
